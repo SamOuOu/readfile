@@ -18,3 +18,37 @@ for d in data:
     if len(d) < 100:
         new.append(d)
 print(len(new))            
+
+
+good = []
+for d in data:
+    if 'good' in d:
+        good.append(d)
+print(len(good))        
+
+#文字計數
+
+word_count = {}
+for d in data:
+    words = d.split()
+    for word in words:
+        if word in word_count:
+            word_count[word] += 1
+        else:
+            word_count[word] = 1  #新增新的key進字典
+for word in word_count:
+    if word_count[word] > 1000000:
+        print(word, word_count[word])
+print(len(word_count))
+
+while True:    
+    word = input('請輸入要查詢的字: ')
+    if word == 'q':
+        break
+    if word in word_count :
+        print(word, '出現', word_count[word], '次')
+    else:
+        print(word, '沒有出現過')
+
+print('88')
+
